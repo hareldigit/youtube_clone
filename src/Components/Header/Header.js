@@ -1,22 +1,28 @@
-import React from 'react'
+import React , {useState} from 'react'
 import './Header.css'
 import {Menu,Search,VideoCall,Apps,Notifications} from '@material-ui/icons';
 import {Avatar} from '@material-ui/core'
+import {Link} from 'react-router-dom'
 
 function Header() {
+    const [inputSearch,setInputSearch] = useState('');
     return (
         <div className="header">
                 <div className="header__left">
                     <Menu className="header__icon"/>
-                    <img 
-                    className="header__logo"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/100px-YouTube_Logo_2017.svg.png" 
-                    alt=""/>
+                    <Link to="/">
+                        <img 
+                        className="header__logo"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/100px-YouTube_Logo_2017.svg.png" 
+                        alt=""/>
+                    </Link>
                 </div>
 
             <div className="header__input">
-                <input placeholder="Search" type="text"/>
-                <Search className="header__inputButton"/>
+                <input value={inputSearch} placeholder="Search" type="text" onChange={e=>setInputSearch(e.target.value)}/>
+                <Link to={`/search/${inputSearch}`}>
+                    <Search className="header__inputButton"/>
+                </Link>
             </div>
 
             <div className="header__icons">

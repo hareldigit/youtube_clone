@@ -16,7 +16,7 @@ header__logo{
 
 .header__input{
     display: flex;
-    align-items:center;
+    align-items:stretch;
     width:40%;
     border: 1px solid lightgray;
 }
@@ -30,11 +30,18 @@ header__logo{
     background-color: #fafafa;
     border-left: 1px solid lightgray;
     color:gray;
+    align-items: stretch;
 }
+
 
 .header__input>input{
     flex: 1;
     border:none;
+    padding: 5px;
+}
+
+.header__input>input:focus{
+    outline:none !important;
 }
 
 
